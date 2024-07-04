@@ -1,0 +1,657 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="description"
+        content="A Versatile Benchmark for Video Understanding and Reasoning">
+  <meta name="keywords" content="VideoVista, Video Vista">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title> VideoVista: A Versatile Benchmark for Video Understanding and Reasoning</title>
+
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <!-- <script async src="https://www.googletagmanager.com/gtag/js?id=G-PYVRSFMDRL"></script> -->
+  <!-- <script>
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+/Users/panlu/Library/Mobile Documents/com~apple~CloudDocs/ImageMath/visual-mathqa-server/data_final/images
+    gtag('js', new Date());
+
+    gtag('config', 'G-PYVRSFMDRL');
+  </script> -->
+
+  <link rel="icon" href="./static/images/videovista.png">
+
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro" rel="stylesheet">
+
+  <link rel="stylesheet" href="./static/css/bulma.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="./static/css/index.css">
+  <link rel="stylesheet" href="./static/css/leaderboard.css">
+
+  <!-- <link href="https://unpkg.com/tabulator-tables@5.5.2/dist/css/tabulator_bulma.min.css" rel="stylesheet">
+  <script type="text/javascript" src="https://unpkg.com/tabulator-tables@5.5.2/dist/js/tabulator.min.js"></script> -->
+  <script type="text/javascript" src="static/js/sort-table.js" defer></script>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script defer src="./static/js/fontawesome.all.min.js"></script>
+  <script src="./static/js/bulma-carousel.min.js"></script>
+  <script src="./static/js/bulma-slider.min.js"></script>
+  <script src="./static/js/explorer-index.js"></script>
+  <script src="./static/js/question_card.js"></script>
+
+  <script src="./static/js/leaderboard_testmini.js"></script>  
+  <script src="./data/results/output_folders.js" defer></script>
+  <script src="./data/results/model_scores.js" defer></script>
+
+  <script src="./visualizer/data/data_public.js" defer></script>
+</head>
+<body>
+
+<nav class="navbar" role="navigation" aria-label="main navigation">
+  <div class="navbar-brand">
+    <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+    </a>
+  </div>
+  <div class="navbar-menu">
+    <div class="navbar-start" style="flex-grow: 1; justify-content: center;">
+      <!-- <a class="navbar-item" href="https://keunhong.com">
+      <span class="icon">
+          <i class="fas fa-home"></i>
+      </span>
+      </a> -->
+      <!-- @PAN TODO: consider adding links? -->
+      <div class="navbar-item has-dropdown is-hoverable">
+        <a class="navbar-link">
+            More Research
+        </a>
+        <div class="navbar-dropdown">
+          <a class="navbar-item" href="https://uni-moe.github.io/">
+            <b>Uni-MoE</b> <p style="font-size:18px; display: inline; margin-left: 5px;"></p>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<section class="hero">
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column has-text-centered">
+            <!-- <h1 class="title is-1 publication-title is-bold" style="font-family: 'Arial', sans-serif; color: #2c3e50; text-align: center; margin-top: 20px;">
+                <img src="static/images/videovista.png" style="width:1.5em; vertical-align: middle;" alt="Logo"/>
+                <span class="videovista" style="vertical-align: middle;">VideoVista</span>
+            </h1> -->
+            <h1 class="title is-1 publication-title is-bold">
+                <img src="static/images/videovista.png" style="width:1em;vertical-align: middle" alt="Logo"/>
+                <span class="videovista" style="vertical-align: middle">VideoVista</span>
+            </h1>
+          <h2 class="subtitle is-3 publication-subtitle">
+            A Versatile Benchmark for Video Understanding and Reasoning
+            <!-- <br> -->
+            <!-- with GPT-4V, Bard, and Other Large Multimodal Models -->
+          </h2>
+          <div class="is-size-5 publication-authors">
+            <span class="author-block">
+              <a href="https://yunxinli.github.io/">Yunxin Li</a><sup style="color:#6fbf73;">1</sup>,</span>
+            <span class="author-block">
+              <a href="https://scholar.google.com/citations?user=vdhyjz4AAAAJ&hl=en">Xinyu Chen</a><sup style="color:#6fbf73;">1</sup>,</span>
+            <span class="author-block">
+              <a href="https://faculty.hitsz.edu.cn/hubaotian">Baotian Hu</a><sup style="color:#6fbf73;">1</sup>,
+            </span>
+            <span class="author-block">
+              <a href="https://www.longyuewang.com/">Longyue Wang</a><sup style="color:#ed4b82">2</sup>,
+            </span>
+            <span class="author-block">
+              <a href="https://scholar.google.com/citations?hl=en&user=N4L5o9UAAAAJ">Haoyuan Shi</a><sup style="color:#6fbf73;">1</sup>,
+            </span>
+            <span class="author-block">
+              <a href="https://faculty.hitsz.edu.cn/MinZhang">Min Zhang</a><sup style="color:#6fbf73;">1</sup>,
+            </span>
+          </div>
+
+          <div class="is-size-5 publication-authors">
+            <span class="author-block"><sup style="color:#6fbf73;">1</sup>Harbin Institute of Technology, Shenzhen</span><br>
+            <span class="author-block"><sup style="color:#ed4b82">2</sup>Tencent AI Lab,</span>
+        </div>
+        
+
+          <div class="column has-text-centered">
+            <div class="publication-links">
+              <!-- PDF Link. -->
+              <span class="link-block">
+                <!-- @PAN TODO: change links -->
+                <a href="https://arxiv.org/pdf/2406.11303"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fas fa-file-pdf"></i>
+                  </span>
+                  <span>Paper</span>
+                </a>
+              </span>
+              <span class="link-block">
+                <a href="https://arxiv.org/abs/2406.11303"
+                   class="external-link button is-normal is-rounded is-dark">
+                <!-- <a href="https://lupantech.github.io/papers/arxiv23_mathvista.pdf"
+                   class="external-link button is-normal is-rounded is-dark"> -->
+                  <span class="icon">
+                      <i class="ai ai-arxiv"></i>
+                  </span>
+                  <span>arXiv</span>
+                </a>
+              </span>
+              <!-- Code Link. -->
+              <span class="link-block">
+                <a href="https://github.com/HITsz-TMG/UMOE-Scaling-Unified-Multimodal-LLMs/tree/master/VideoVista"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fab fa-github"></i>
+                  </span>
+                  <span>Code</span>
+                  </a>
+              </span>
+              <!-- Dataset Link. -->
+              <span class="link-block">
+                <a href="https://huggingface.co/datasets/Uni-MoE/VideoVista"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <!-- <i class="far fa-images"></i> -->
+                      <p style="font-size:18px">🤗</p>
+                      <!-- 🔗 -->
+                  </span>
+                  <span>Dataset</span>
+                </a>
+              </span>
+              <!-- Visualization Link. -->
+              <!-- <span class="link-block">
+                <a href="https://mathvista.github.io/#visualization"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <p style="font-size:18px">🔮</p>
+                  </span>
+                  <span>Visualize</span>
+                </a>
+              </span> -->
+              <!-- Leaderboard Link. -->
+              <span class="link-block">
+                <a href="https://videovista.github.io/#leaderboard"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <p style="font-size:18px">🏆</p>
+                  </span>
+                  <span>Leaderboard</span>
+                </a>
+              </span>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- <section class="hero teaser">
+  <div class="container is-max-desktop">
+    <div class="content has-text-centered">
+      <img src="static/images/tease_scores_gpt4v.png" alt="geometric reasoning" width="99%"/>
+      <p> Accuracy scores of one leading LLM (i.e., PoT GPT-4), four primary LMMs, random chance, and human performance our proposed 
+      <img src="static/images/mathvista.png" style="width:1.0em;vertical-align: middle" alt="Logo"/>
+      <span class="mathvista">MathVista</span>
+      across mathematical reasoning and visual context types. PoT refers to program-of-thought prompting, and PoT GPT-4 is a textual LLM augmented with the caption and OCR text. GPT-4V is manually evaluated via the playground chatbot.
+      </p>
+    </div>
+  </div>
+</section> -->
+
+
+<!-- <section class="section">
+  <div class="container" style="margin-top: -150px; margin-bottom: -100px;">
+    <div class="columns is-centered m-6">
+      <div class="column is-full has-text-centered content">
+        <div id="results-carousel" class="carousel results-carousel">
+          <div class="box m-5">
+            <div class="content has-text-centered">
+              <img src="static/images/tease_scores_version4_gemini.png" alt="geometric reasoning" width="84%"/>
+              <p> Accuracy scores of one leading LLM (i.e., PoT GPT-4), four primary LMMs, random chance, and human performance our proposed 
+              <img src="static/images/mathvista.png" style="width:1.0em;vertical-align: middle" alt="Logo"/>
+              <span class="mathvista">MathVista</span>
+              across mathematical reasoning and visual context types. PoT refers to program-of-thought prompting, and PoT GPT-4 is a textual LLM augmented with the caption and OCR text. GPT-4V is manually evaluated via the playground chatbot. <b class="best-score-text" style="color: #C6011F"> The scores of Gemini Ultra are from the Gemini Team, Google.</b>
+              </p>
+            </div>
+          </div>
+          <div class="box m-5">
+            <div class="content has-text-centered">
+              <img src="static/images/tease_scores_gpt4v.png" alt="geometric reasoning" width="84%"/>
+              <p> Accuracy scores of one leading LLM (i.e., PoT GPT-4), four primary LMMs, random chance, and human performance our proposed 
+              <img src="static/images/mathvista.png" style="width:1.0em;vertical-align: middle" alt="Logo"/>
+              <span class="mathvista">MathVista</span>
+              across mathematical reasoning and visual context types. PoT refers to program-of-thought prompting, and PoT GPT-4 is a textual LLM augmented with the caption and OCR text. GPT-4V is manually evaluated via the playground chatbot.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+</section> -->
+
+
+<section class="section">
+  <div class="container" style="margin-bottom: 2vh;">
+    <!-- Abstract. -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Introduction</h2>
+        <div class="content has-text-justified">
+          <p>
+            Despite significant breakthroughs in video analysis driven by the rapid development of large multimodal models (LMMs), there remains a lack of a versatile evaluation benchmark to comprehensively assess these models' performance in video understanding and reasoning.
+            <!-- To bridge this gap, we present <img src="static/images/mathvista.png" style="width:1.0em;vertical-align: middle" alt="Logo"/>
+            <span class="mathvista">MathVista</span>, a benchmark designed to combine challenges from diverse mathematical and visual tasks. It consists of <b>6,141 examples</b>, derived from <b>28 existing multimodal datasets</b> involving mathematics and <b>3 newly created datasets</b> (i.e., <b>IQTest, FunctionQA, and PaperQA</b>). Completing these tasks requires fine-grained, deep visual understanding and compositional reasoning, which all state-of-the-art foundation models find challenging.  -->
+            We introduce <b>VideoVista</b>, a video benchmark that integrates challenges across diverse content categories, durations, and abilities. 
+            Specifically, VideoVista comprises <b>25,000</b> questions derived from <b>3,400</b> videos spanning <b>14</b> categories (e.g., Howto, Film, and Entertainment) with durations ranging from a few seconds to over 10 minutes. Besides, it encompasses <b>19</b> types of understanding tasks (e.g., anomaly detection, interaction understanding) and <b>8</b> reasoning tasks (e.g., logical reasoning, causal reasoning).
+            Our experiments reveal that: 1) Video-LMMs face difficulties in fine-grained video tasks involving temporal location, object tracking, and anomaly detection; 2) Video-LMMs present inferior logical and relation reasoning abilities; 3) Open-source Video-LMMs' performance is significantly lower than GPT-4o and Gemini-1.5, lagging by 20 points. This highlights the crucial role VideoVista will play in advancing LMMs that can accurately understand videos and perform precise reasoning.
+          </p>
+          <!-- <p>
+            With <img src="static/images/mathvista.png" style="width:1.0em;vertical-align: middle" alt="Logo"/>
+            <span class="mathvista">MathVista</span>, we have conducted <b>a comprehensive, quantitative evaluation of 12 prominent foundation models</b>. The best-performing <b>GPT-4V</b> model achieves an overall accuracy of <b>49.9%</b>, substantially outperforming Bard, the second-best performer, by <b>15.1%</b>. Our in-depth analysis reveals that the superiority of <b>GPT-4V</b> is mainly attributed to its enhanced visual perception and mathematical reasoning. However, <b>GPT-4V</b> still falls short of human performance by <b>10.4%</b>, as it often struggles to understand complex figures and perform rigorous reasoning. This significant gap underscores the critical role that <img src="static/images/mathvista.png" style="width:1.0em;vertical-align: middle" alt="Logo"/>
+            <span class="mathvista">MathVista</span> will play in the development of general-purpose AI agents capable of tackling mathematically intensive and visually rich real-world tasks. We further explore the new ability of <b>self-verification</b>, the use of <b>self-consistency</b>, and the  <b>goal-directed multi-turn human-AI dialogues</b>, highlighting the promising potential of GPT-4V for future research. 
+          </p> -->
+        </div>
+      </div>
+    </div>
+    <!--/ Abstract. -->
+</div>
+</section>
+
+<section class="section">
+  <div class="container">
+    
+    <div class="columns is-centered">
+      <div class="column is-full has-text-centered content">
+        <!-- <h2 class="title is-3" id="leaderboard">Leaderboard</h2>
+        <div class="content">
+          <p class="mt-3">Accuracy scores on the VideoVista Dataset.</p>
+          <p> <b>Unders.</b>(Video Understanding Task); <b>Reason.</b>(Video Reasoning Task)</p>
+
+          <div id="leaderboard"></div>
+
+        </div> -->
+
+        <h2 class="title is-3" id="leaderboard">Leaderboard on VideoVista</h2>
+        <div class="content">
+          <p class="mt-3">Accuracy scores on the VideoVista Dataset.</p>
+          <p> <b>Unders.</b>(Video Understanding Task); <b>Reason.</b>(Video Reasoning Task)</p>
+
+          <table class="js-sort-table" id="results">
+            <tr>
+                <td class="js-sort-number"><strong>#</strong></td>
+                <td class="js-sort-number"><strong>Model</strong></td>
+                <td class="js-sort-number"><strong>Language Model</strong></td>
+                <!-- <td class="js-sort-number"><strong>Source</strong></td> -->
+                <td class="js-sort-number"><strong>Frames</strong></td>
+                <td class="js-sort-number"><strong>Date</strong></td>
+                <td class="js-sort-number"><strong>Overall</strong></td>
+                <td class="js-sort-number"><strong>Unders.</strong></td>
+                <td class="js-sort-number"><strong>Reason.</strong></td>
+    
+            </tr>
+            <!-- <tr>
+                <td style="vertical-align: middle;">1</td>
+                <td style="text-align: left; padding: 2px 10px; vertical-align: middle;"><b class=""><a href="https://openai.com/index/hello-gpt-4o/" class="ext-link" style="font-size: 16px; margin-left: 5px;">GPT-4o
+                <td style="vertical-align: middle;">GPT-4o </td>
+                <td style="vertical-align: middle;">100</td>
+                <td style="vertical-align: middle;">2024-07-04</td>
+                <td style="vertical-align: middle;"><b>78.26</b></td>
+                <td style="vertical-align: middle;">75.15</td>
+                <td style="vertical-align: middle;">87.97</td>                              
+            </tr>
+            <tr>
+                <td style="vertical-align: middle;">2</td>
+                <td style="text-align: left; padding: 2px 10px; vertical-align: middle;"><b class=""><a href="https://storage.googleapis.com/deepmind-media/gemini/gemini_v1_5_report.pdf" class="ext-link" style="font-size: 16px; margin-left: 5px;">Gemini-1.5-Flash
+                <td style="vertical-align: middle;">Gemini </td>
+                <td style="vertical-align: middle;">1fps</td>
+                <td style="vertical-align: middle;">2024-07-04</td>
+                <td style="vertical-align: middle;"><b>76.39</b></td>
+                <td style="vertical-align: middle;">74.73</td>
+                <td style="vertical-align: middle;">82.30</td>                              
+            </tr>
+            <tr>
+                <td style="vertical-align: middle;">3</td>
+                <td style="text-align: left; padding: 2px 10px; vertical-align: middle;"><b class=""><a href="https://uni-moe.github.io/" class="ext-link" style="font-size: 16px; margin-left: 5px;">Uni-MoE
+                <td style="vertical-align: middle;">Vicuna-7B</td>
+                <td style="vertical-align: middle;">8</td>
+                <td style="vertical-align: middle;">2024-07-04</td>
+                <td style="vertical-align: middle;"><b>61.13</b></td>
+                <td style="vertical-align: middle;">58.65</td>
+                <td style="vertical-align: middle;">69.62</td>
+              </tr> -->
+            <!-- <tr>
+                <td style="vertical-align: middle;">4</td>
+                <td style="text-align: left; padding: 2px 10px; vertical-align: middle;"><b class=""><a href="https://github.com/magic-research/PLLaVA" class="ext-link" style="font-size: 16px; margin-left: 5px;">PLLaVA-13B
+                <td style="vertical-align: middle;">Vicuna-13B</td>
+                <td style="vertical-align: middle;">16</td>
+                <td style="vertical-align: middle;">2024-07-04</td>
+                <td style="vertical-align: middle;"><b>64.67</b></td>
+                <td style="vertical-align: middle;">62.44</td>
+                <td style="vertical-align: middle;">73.00</td>
+              </tr> -->
+              <!-- <tr>
+                <td style="vertical-align: middle;">5</td>
+                <td style="text-align: left; padding: 2px 10px; vertical-align: middle;"><b class=""><a href="https://github.com/magic-research/PLLaVA" class="ext-link" style="font-size: 16px; margin-left: 5px;">PLLaVA-7B
+                <td style="vertical-align: middle;">Vicuna-7B</td>
+                <td style="vertical-align: middle;">16</td>
+                <td style="vertical-align: middle;">2024-07-04</td>
+                <td style="vertical-align: middle;"><b>60.36</b></td>
+                <td style="vertical-align: middle;">58.35</td>
+                <td style="vertical-align: middle;">67.86</td>
+              </tr>
+              <tr>
+                <td style="vertical-align: middle;">6</td>
+                <td style="text-align: left; padding: 2px 10px; vertical-align: middle;">VideoChat2-Mistral</td>
+                <td style="vertical-align: middle;">Mistral-7B</td>
+                <td style="vertical-align: middle;">16</td>
+                <td style="vertical-align: middle;">2024-07-04</td>
+                <td style="vertical-align: middle;"><b>57.24</b></td>
+                <td style="vertical-align: middle;">54.91</td>
+                <td style="vertical-align: middle;">65.95</td>
+              </tr> -->
+              <tr>
+                <td style="vertical-align: middle;">0</td>
+                <td style="text-align: left; padding: 2px 10px; vertical-align: middle;"><b class=""><a href="https://openai.com/index/hello-gpt-4o/" class="ext-link" style="font-size: 16px; margin-left: 5px;">GPT-4o
+                <td style="vertical-align: middle;">GPT-4</td>
+                <td style="vertical-align: middle;">100</td>
+                <td style="vertical-align: middle;">2024-07-04</td>
+                <td style="vertical-align: middle;"><b>78.26</b></td>
+                <td style="vertical-align: middle;">75.15</td>
+                <td style="vertical-align: middle;">87.97</td>
+              </tr>
+              <tr>
+                <td style="vertical-align: middle;">1</td>
+                <td style="text-align: left; padding: 2px 10px; vertical-align: middle;"><b class=""><a href="https://storage.googleapis.com/deepmind-media/gemini/gemini_v1_5_report.pdf" class="ext-link" style="font-size: 16px; margin-left: 5px;">Gemini-1.5-Flash
+                <td style="vertical-align: middle;">Gemini</td>
+                <td style="vertical-align: middle;">1 fps</td>
+                <td style="vertical-align: middle;">2024-07-04</td>
+                <td style="vertical-align: middle;"><b>76.39</b></td>
+                <td style="vertical-align: middle;">74.73</td>
+                <td style="vertical-align: middle;">82.30</td>
+              </tr>
+              <tr>
+                <td style="vertical-align: middle;">2</td>
+                <td style="text-align: left; padding: 2px 10px; vertical-align: middle;"><b class=""><a href="https://github.com/magic-research/PLLaVA" class="ext-link" style="font-size: 16px; margin-left: 5px;">PLLaVA
+                <td style="vertical-align: middle;">Vicuna-13B</td>
+                <td style="vertical-align: middle;">16</td>
+                <td style="vertical-align: middle;">2024-07-04</td>
+                <td style="vertical-align: middle;"><b>64.67</b></td>
+                <td style="vertical-align: middle;">62.44</td>
+                <td style="vertical-align: middle;">73.00</td>
+              </tr>
+              <tr>
+                <td style="vertical-align: middle;">3</td>
+                <td style="text-align: left; padding: 2px 10px; vertical-align: middle;"><b class=""><a href="https://uni-moe.github.io/" class="ext-link" style="font-size: 16px; margin-left: 5px;">Uni-MoE
+                <td style="vertical-align: middle;">Vicuna-7B</td>
+                <td style="vertical-align: middle;">8</td>
+                <td style="vertical-align: middle;">2024-07-04</td>
+                <td style="vertical-align: middle;"><b>61.13</b></td>
+                <td style="vertical-align: middle;">58.65</td>
+                <td style="vertical-align: middle;">69.62</td>
+              </tr>
+              <tr>
+                <td style="vertical-align: middle;">4</td>
+                <td style="text-align: left; padding: 2px 10px; vertical-align: middle;"><b class=""><a href="https://github.com/magic-research/PLLaVA" class="ext-link" style="font-size: 16px; margin-left: 5px;">PLLaVA
+                <td style="vertical-align: middle;">Vicuna-7B</td>
+                <td style="vertical-align: middle;">16</td>
+                <td style="vertical-align: middle;">2024-07-04</td>
+                <td style="vertical-align: middle;"><b>60.36</b></td>
+                <td style="vertical-align: middle;">58.35</td>
+                <td style="vertical-align: middle;">67.86</td>
+              </tr>
+              <tr>
+                <td style="vertical-align: middle;">5</td>
+                <td style="text-align: left; padding: 2px 10px; vertical-align: middle;"><b class=""><a href="https://github.com/OpenGVLab/Ask-Anything/tree/main/video_chat2" class="ext-link" style="font-size: 16px; margin-left: 5px;">VideoChat2-Mistral
+                <td style="vertical-align: middle;">Mistral-7B</td>
+                <td style="vertical-align: middle;">16</td>
+                <td style="vertical-align: middle;">2024-07-04</td>
+                <td style="vertical-align: middle;"><b>57.24</b></td>
+                <td style="vertical-align: middle;">54.91</td>
+                <td style="vertical-align: middle;">65.95</td>
+              </tr>
+              <tr>
+                <td style="vertical-align: middle;">6</td>
+                <td style="text-align: left; padding: 2px 10px; vertical-align: middle;"><b class=""><a href="https://github.com/dvlab-research/LLaMA-VID" class="ext-link" style="font-size: 16px; margin-left: 5px;">LLaMA-VID
+                <td style="vertical-align: middle;">Vicuna-7B</td>
+                <td style="vertical-align: middle;">1 fps</td>
+                <td style="vertical-align: middle;">2024-07-04</td>
+                <td style="vertical-align: middle;"><b>56.87</b></td>
+                <td style="vertical-align: middle;">54.00</td>
+                <td style="vertical-align: middle;">67.61</td>
+              </tr>
+              <tr>
+                <td style="vertical-align: middle;">7</td>
+                <td style="text-align: left; padding: 2px 10px; vertical-align: middle;"><b class=""><a href="https://llava-vl.github.io/blog/2024-04-30-llava-next-video/" class="ext-link" style="font-size: 16px; margin-left: 5px;">LLaVA-NeXT-Video-DPO
+                <td style="vertical-align: middle;">Vicuna-7B</td>
+                <td style="vertical-align: middle;">16</td>
+                <td style="vertical-align: middle;">2024-07-04</td>
+                <td style="vertical-align: middle;"><b>56.66</b></td>
+                <td style="vertical-align: middle;">54.12</td>
+                <td style="vertical-align: middle;">66.14</td>
+              </tr>
+              <tr>
+                <td style="vertical-align: middle;">8</td>
+                <td style="text-align: left; padding: 2px 10px; vertical-align: middle;"><b class=""><a href="https://github.com/PKU-YuanGroup/Video-LLaVA" class="ext-link" style="font-size: 16px; margin-left: 5px;">Video-LLaVA
+                <td style="vertical-align: middle;">Vicuna-7B</td>
+                <td style="vertical-align: middle;">8</td>
+                <td style="vertical-align: middle;">2024-07-04</td>
+                <td style="vertical-align: middle;"><b>56.59</b></td>
+                <td style="vertical-align: middle;">53.82</td>
+                <td style="vertical-align: middle;">66.91</td>
+              </tr>
+              <tr>
+                <td style="vertical-align: middle;">9</td>
+                <td style="text-align: left; padding: 2px 10px; vertical-align: middle;"><b class=""><a href="https://github.com/NVlabs/VILA" class="ext-link" style="font-size: 16px; margin-left: 5px;">VILA-1.5
+                <td style="vertical-align: middle;">Llama3-8B</td>
+                <td style="vertical-align: middle;">8</td>
+                <td style="vertical-align: middle;">2024-07-04</td>
+                <td style="vertical-align: middle;"><b>55.15</b></td>
+                <td style="vertical-align: middle;">52.99</td>
+                <td style="vertical-align: middle;">63.24</td>
+              </tr>
+              <tr>
+                <td style="vertical-align: middle;">10</td>
+                <td style="text-align: left; padding: 2px 10px; vertical-align: middle;"><b class=""><a href="https://github.com/OpenGVLab/Ask-Anything/tree/main/video_chat2" class="ext-link" style="font-size: 16px; margin-left: 5px;">VideoChat2-Vicuna
+                <td style="vertical-align: middle;">Vicuna-7B</td>
+                <td style="vertical-align: middle;">16</td>
+                <td style="vertical-align: middle;">2024-07-04</td>
+                <td style="vertical-align: middle;"><b>53.64</b></td>
+                <td style="vertical-align: middle;">51.79</td>
+                <td style="vertical-align: middle;">60.55</td>
+              </tr>
+              <tr>
+                <td style="vertical-align: middle;">11</td>
+                <td style="text-align: left; padding: 2px 10px; vertical-align: middle;"><b class=""><a href="https://github.com/ShareGPT4Omni/ShareGPT4Video" class="ext-link" style="font-size: 16px; margin-left: 5px;">ShareGPT4Video
+                <td style="vertical-align: middle;">Vicuna-7B</td>
+                <td style="vertical-align: middle;">16</td>
+                <td style="vertical-align: middle;">2024-07-04</td>
+                <td style="vertical-align: middle;"><b>53.58</b></td>
+                <td style="vertical-align: middle;">51.79</td>
+                <td style="vertical-align: middle;">60.30</td>
+              </tr>
+              <tr>
+                <td style="vertical-align: middle;">12</td>
+                <td style="text-align: left; padding: 2px 10px; vertical-align: middle;"><b class=""><a href="https://arxiv.org/pdf/2402.13546" class="ext-link" style="font-size: 16px; margin-left: 5px;">IVA
+                <td style="vertical-align: middle;">Vicuna-7B</td>
+                <td style="vertical-align: middle;">200</td>
+                <td style="vertical-align: middle;">2024-07-04</td>
+                <td style="vertical-align: middle;"><b>39.70</b></td>
+                <td style="vertical-align: middle;">37.38</td>
+                <td style="vertical-align: middle;">48.38</td>
+              </tr>
+              <tr>
+                <td style="vertical-align: middle;">13</td>
+                <td style="text-align: left; padding: 2px 10px; vertical-align: middle;"><b class=""><a href="https://github.com/mbzuai-oryx/Video-ChatGPT" class="ext-link" style="font-size: 16px; margin-left: 5px;">Video-ChatGPT
+                <td style="vertical-align: middle;">Vicuna-7B</td>
+                <td style="vertical-align: middle;">100</td>
+                <td style="vertical-align: middle;">2024-07-04</td>
+                <td style="vertical-align: middle;"><b>36.65</b></td>
+                <td style="vertical-align: middle;">36.09</td>
+                <td style="vertical-align: middle;">38.73</td>
+              </tr>
+              <tr>
+                <td style="vertical-align: middle;">14</td>
+                <td style="text-align: left; padding: 2px 10px; vertical-align: middle;"><b class=""><a href="https://github.com/DAMO-NLP-SG/Video-LLaMA" class="ext-link" style="font-size: 16px; margin-left: 5px;">Video-LLaMA
+                <td style="vertical-align: middle;">Vicuna-7B</td>
+                <td style="vertical-align: middle;">16</td>
+                <td style="vertical-align: middle;">2024-07-04</td>
+                <td style="vertical-align: middle;"><b>25.35</b></td>
+                <td style="vertical-align: middle;">25.40</td>
+                <td style="vertical-align: middle;">25.16</td>
+              </tr>
+              <tr>
+                <td style="vertical-align: middle;">15</td>
+                <td style="text-align: left; padding: 2px 10px; vertical-align: middle;"><b class=""><a href="https://github.com/OpenGVLab/Ask-Anything/tree/main/video_chat_with_ChatGPT" class="ext-link" style="font-size: 16px; margin-left: 5px;">VideoChat_with_ChatGPT
+                <td style="vertical-align: middle;">gpt-3.5-turbo</td>
+                <td style="vertical-align: middle;">40</td>
+                <td style="vertical-align: middle;">2024-07-04</td>
+                <td style="vertical-align: middle;"><b>17.99</b></td>
+                <td style="vertical-align: middle;">16.64</td>
+                <td style="vertical-align: middle;">23.04</td>
+              </tr>
+
+        </table>
+
+          <!-- <b>Human Performance*:</b> Average human performance from AMT annotators who have high school diplomas or above.
+          <br>
+          <b>Method types:</b> <b>MoE 🤖:</b> Mixture of Experts, <b>LMM 🖼️:</b> Large Multimodal Model, <b>Tool 🛠️:</b> Tool-augmented Large Language Model.
+          <br>
+          <b>Task types:</b> <b>FQA:</b> figure QA,
+          <b>GPS:</b> geometry problem solving,
+          <b>MWP:</b> math word problem,
+          <b>TQA:</b> textbook QA,
+          <b>VQA:</b> visual QA.
+          <br>
+          <b>Math reasoning types:</b> 
+          <b>ALG:</b> algebraic,
+          <b>ARI:</b> arithmetic,
+          <b>GEO:</b> geometry,
+          <b>LOG:</b> logical ,
+          <b>NUM:</b> numeric,
+          <b>SCI:</b> scientific,
+          <b>STA:</b> statistical.
+          <br>
+          <br>
+          <div>
+          <p>🚨 To submit your results to the leaderboard, please send to <a href="mailto:lupantech@gmail.com">this email</a> with your result json files.</p>
+          <p>🚨 For more submission details, please refer to <a href="https://github.com/lupantech/MathVista?tab=readme-ov-file#-leaderboard-">this link</a> and <a href="https://github.com/lupantech/MathVista?tab=readme-ov-file#-evaluations-on-mathvista">this link</a>.
+          </p>
+          </div> -->
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- DATASET SECTION -->
+<!-- <section class="hero is-light is-small">
+  <div class="hero-body has-text-centered">
+  <h1 class="title is-1 videovista">
+    <img src="static/images/videovista.png" style="width:1em;vertical-align: middle" alt="Logo"/>
+    <span class="videovista" style="vertical-align: middle">VideoVista Dataset</span>
+  </h1>
+  </div>
+</section> -->
+
+            
+<!-- <section class="section">
+  <div class="container">
+    <div class="columns is-centered m-6">
+      <div class="column is-full has-text-centered content">
+        <h2 class="title is-3">Examples</h2>
+        <p>One Example of </p>
+
+      </div>
+    </div>
+    <div class="columns is-centered m-6">
+      <div class="column is-full has-text-centered content">
+        <h2 class="title is-3">Statistics</h2>
+        <p>Notable statistics of <img src="static/images/videovista.png" style="width:1.0em;vertical-align: middle" alt="Logo"/>
+          <span class="mathvista">VideoVista</span></p>
+    
+      </div>
+    </div>
+
+  </div>
+</section> -->
+
+<!-- RESULTS SECTION -->
+<!-- <section class="hero is-light is-small">
+  <div class="hero-body has-text-centered">
+    <h1 class="title is-1 mathvista">Experiment Results</h1>
+  </div>
+</section> -->
+              
+
+
+<!-- @PAN TODO: bibtex -->
+<!-- <section class="section" id="BibTeX">
+  <div class="container is-max-desktop content">
+    <h2 class="title is-3 has-text-centered">BibTeX</h2>
+    <pre><code>@misc{li2024videovista,
+        title={VideoVista: A Versatile Benchmark for Video Understanding and Reasoning}, 
+        author={Yunxin Li and Xinyu Chen and Baotian Hu and Longyue Wang and Haoyuan Shi and Min Zhang},
+        year={2024},
+        eprint={2406.11303},
+        archivePrefix={arXiv}
+}</code></pre>
+  </div>
+</section> -->
+<section class="hero is-light is-small">
+    <div class="hero-body has-text-centered">
+      <h1 class="title is-1 mathvista_other" id="citation">Citation</h1>
+    </div>
+  </section>
+  
+  <section class="section" id="BibTeX">
+    <div class="container is-max-desktop content">
+      <pre><code>@misc{li2024videovista,
+        title={VideoVista: A Versatile Benchmark for Video Understanding and Reasoning}, 
+        author={Yunxin Li and Xinyu Chen and Baotian Hu and Longyue Wang and Haoyuan Shi and Min Zhang},
+        year={2024},
+        eprint={2406.11303},
+        archivePrefix={arXiv}
+}
+  </code></pre>
+    </div>
+  </section>
+
+<footer class="footer">
+  <!-- <div class="container"> -->
+    <div class="content has-text-centered">
+    </div>
+    <div class="columns is-centered">
+      <div class="column is-8">
+        <div class="content">
+          <p>
+            This website is website adapted from <a href="https://nerfies.github.io/">Nerfies</a> and <a href="https://mathvista.github.io/">MathVista</a>, licensed under a <a rel="license"
+                                                href="http://creativecommons.org/licenses/by-sa/4.0/">Creative
+            Commons Attribution-ShareAlike 4.0 International License</a>.
+          </p>
+        </div>
+      </div>
+    </div>
+  <!-- </div> -->
+</footer>
+
+</body>
+</html>
