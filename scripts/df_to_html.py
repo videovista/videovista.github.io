@@ -28,21 +28,26 @@ def custom_to_html(df):
     html_str = re.sub(r'<td style="vertical-align: middle;">Video-ChatGPT</td>', '<td style="text-align: left; padding: 2px 10px; vertical-align: middle;"><b class=""><a href="https://github.com/mbzuai-oryx/Video-ChatGPT" class="ext-link" style="font-size: 16px; margin-left: 5px;">Video-ChatGPT', html_str)
     html_str = re.sub(r'<td style="vertical-align: middle;">Video-LLaMA</td>', '<td style="text-align: left; padding: 2px 10px; vertical-align: middle;"><b class=""><a href="https://github.com/DAMO-NLP-SG/Video-LLaMA" class="ext-link" style="font-size: 16px; margin-left: 5px;">Video-LLaMA', html_str)
     html_str = re.sub(r'<td style="vertical-align: middle;">VideoChat_with_ChatGPT</td>', '<td style="text-align: left; padding: 2px 10px; vertical-align: middle;"><b class=""><a href="https://github.com/OpenGVLab/Ask-Anything/tree/main/video_chat_with_ChatGPT" class="ext-link" style="font-size: 16px; margin-left: 5px;">VideoChat_with_ChatGPT', html_str)
+    
+    
+    html_str = re.sub(r'<td style="vertical-align: middle;">Video-CCAM</td>', '<td style="text-align: left; padding: 2px 10px; vertical-align: middle;"><b class=""><a href="https://github.com/QQ-MM/Video-CCAM" class="ext-link" style="font-size: 16px; margin-left: 5px;">Video-CCAM', html_str)
+    html_str = re.sub(r'<td style="vertical-align: middle;">VideoLLaMA2</td>', '<td style="text-align: left; padding: 2px 10px; vertical-align: middle;"><b class=""><a href="https://github.com/DAMO-NLP-SG/VideoLLaMA2" class="ext-link" style="font-size: 16px; margin-left: 5px;">VideoLLaMA2', html_str)
+    html_str = re.sub(r'<td style="vertical-align: middle;">MiniGPT4-Video</td>', '<td style="text-align: left; padding: 2px 10px; vertical-align: middle;"><b class=""><a href="https://github.com/Vision-CAIR/MiniGPT4-video" class="ext-link" style="font-size: 16px; margin-left: 5px;">MiniGPT4-Video', html_str)
     return html_str
 
 # 创建数据
 data = {
     "Model": ["VideoChat_with_ChatGPT", "Video-LLaMA", "Video-ChatGPT", "IVA", "ShareGPT4Video", "VILA-1.5",
               "Video-LLaVA", "LLaMA-VID", "LLaVA-NeXT-Video-DPO", "VideoChat2-Vicuna", "VideoChat2-Mistral", 
-              "PLLaVA", "PLLaVA", "Uni-MoE", "Gemini-1.5-Flash", "GPT-4o"],
+              "PLLaVA", "PLLaVA", "Uni-MoE", "Gemini-1.5-Flash", "GPT-4o", "place"],
     "Language Model": ["gpt-3.5-turbo", "Vicuna-7B", "Vicuna-7B", "Vicuna-7B", "Vicuna-7B", "Llama3-8B",
                        "Vicuna-7B", "Vicuna-7B", "Vicuna-7B", "Vicuna-7B", "Mistral-7B", "Vicuna-7B", 
-                       "Vicuna-13B", "Vicuna-7B", "Gemini", "GPT-4"],
-    "Frames": [40, 16, 100, 200, 16, 8, 8, "1 fps", 16, 16, 16, 16, 16, 8, "1 fps", 100],
-    "Date": ["2024-07-04", "2024-07-04", "2024-07-04", "2024-07-04", "2024-07-04", "2024-07-04", "2024-07-04", "2024-07-04", "2024-07-04", "2024-07-04" ,"2024-07-04" ,"2024-07-04" ,"2024-07-04" ,"2024-07-04" ,"2024-07-04" ,"2024-07-04"],
-    "Overall": [17.99, 25.35, 36.65, 39.70, 53.58, 55.15, 56.59, 56.87, 56.66, 53.64, 57.24, 60.36, 64.67, 61.13, 76.39, 78.26],
-    "Unders.": [16.64, 25.40, 36.09, 37.38, 51.79, 52.99, 53.82, 54.00, 54.12, 51.79, 54.91, 58.35, 62.44, 58.65, 74.73, 75.15],
-    "Reason.": [23.04, 25.16, 38.73, 48.38, 60.30, 63.24, 66.91, 67.61, 66.14, 60.55, 65.95, 67.86, 73.00, 69.62, 82.30, 87.97],
+                       "Vicuna-13B", "Vicuna-7B", "Gemini", "GPT-4", "place"],
+    "Frames": [40, 16, 100, 200, 16, 8, 8, "1 fps", 16, 16, 16, 16, 16, 8, "1 fps", 100, 1],
+    "Date": ["2024-07-05", "2024-07-05", "2024-07-05", "2024-07-05", "2024-07-05", "2024-07-05", "2024-07-05", "2024-07-05", "2024-07-05", "2024-07-05" ,"2024-07-05" ,"2024-07-05" ,"2024-07-05" ,"2024-07-05" ,"2024-07-05" ,"2024-07-05", ""],
+    "Overall": [17.99, 25.35, 36.65, 39.70, 53.58, 55.15, 56.59, 56.87, 56.66, 53.64, 57.24, 60.36, 64.67, 61.13, 76.39, 78.26, 100],
+    "Unders.": [16.64, 25.40, 36.09, 37.38, 51.79, 52.99, 53.82, 54.00, 54.12, 51.79, 54.91, 58.35, 62.44, 58.65, 74.73, 75.15, 100],
+    "Reason.": [23.04, 25.16, 38.73, 48.38, 60.30, 63.24, 66.91, 67.61, 66.14, 60.55, 65.95, 67.86, 73.00, 69.62, 82.30, 87.97, 100],
 
 }
 
@@ -52,6 +57,14 @@ df = pd.DataFrame(data)
 # 示例：添加新行
 # new_data = {"Model": "NewModel", "Language Model": "NewLanguageModel", "Frames": 50, "Unders.": 60.00, "Reason.": 70.00, "Overall": 65.00}
 # df = df.append(new_data, ignore_index=True)
+new_data = [
+  {"Model": "Video-CCAM", "Language Model": "Yi-1.5-9B", "Frames": 96, "Unders.": 62.40, "Reason.": 71.84, "Overall": 64.39, "Date": "2024-07-05"},
+  {"Model": "VideoLLaMA2", "Language Model": "Mistral-7B", "Frames": 16, "Unders.": 58.73, "Reason.": 66.97, "Overall": 60.47, "Date": "2024-07-05"},
+  {"Model": "MiniGPT4-Video", "Language Model": "Mistral-7B", "Frames": 45, "Unders.": 51.73, "Reason.": 65.50, "Overall": 54.64, "Date": "2024-07-05"}
+  ]
+
+for d in new_data:
+  df = df.append(d, ignore_index=True)
 
 # 按 Overall 列排序
 df = df.sort_values(by="Overall", ascending=False).reset_index(drop=True)
