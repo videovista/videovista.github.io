@@ -32,6 +32,8 @@ def custom_to_html(df):
     
     html_str = re.sub(r'<td style="vertical-align: middle;">Video-CCAM</td>', '<td style="text-align: left; padding: 2px 10px; vertical-align: middle;"><b class=""><a href="https://github.com/QQ-MM/Video-CCAM" class="ext-link" style="font-size: 16px; margin-left: 5px;">Video-CCAM', html_str)
     html_str = re.sub(r'<td style="vertical-align: middle;">VideoLLaMA2</td>', '<td style="text-align: left; padding: 2px 10px; vertical-align: middle;"><b class=""><a href="https://github.com/DAMO-NLP-SG/VideoLLaMA2" class="ext-link" style="font-size: 16px; margin-left: 5px;">VideoLLaMA2', html_str)
+    html_str = re.sub(r'<td style="vertical-align: middle;">VTimeLLM-Vicuna</td>', '<td style="text-align: left; padding: 2px 10px; vertical-align: middle;"><b class=""><a href="https://github.com/huangb23/VTimeLLM" class="ext-link" style="font-size: 16px; margin-left: 5px;">VTimeLLM-Vicuna', html_str)
+    html_str = re.sub(r'<td style="vertical-align: middle;">VTimeLLM-ChatGLM</td>', '<td style="text-align: left; padding: 2px 10px; vertical-align: middle;"><b class=""><a href="https://github.com/huangb23/VTimeLLM" class="ext-link" style="font-size: 16px; margin-left: 5px;">VTimeLLM-ChatGLM', html_str)
     html_str = re.sub(r'<td style="vertical-align: middle;">MiniGPT4-Video</td>', '<td style="text-align: left; padding: 2px 10px; vertical-align: middle;"><b class=""><a href="https://github.com/Vision-CAIR/MiniGPT4-video" class="ext-link" style="font-size: 16px; margin-left: 5px;">MiniGPT4-Video', html_str)
     return html_str
 
@@ -60,7 +62,10 @@ df = pd.DataFrame(data)
 new_data = [
   {"Model": "Video-CCAM", "Language Model": "Yi-1.5-9B", "Frames": 96, "Unders.": 62.40, "Reason.": 71.84, "Overall": 64.39, "Date": "2024-07-05"},
   {"Model": "VideoLLaMA2", "Language Model": "Mistral-7B", "Frames": 16, "Unders.": 58.73, "Reason.": 66.97, "Overall": 60.47, "Date": "2024-07-05"},
-  {"Model": "MiniGPT4-Video", "Language Model": "Mistral-7B", "Frames": 45, "Unders.": 51.73, "Reason.": 65.50, "Overall": 54.64, "Date": "2024-07-05"}
+  {"Model": "MiniGPT4-Video", "Language Model": "Mistral-7B", "Frames": 45, "Unders.": 51.73, "Reason.": 65.50, "Overall": 54.64, "Date": "2024-07-05"},
+  {"Model": "VILA-1.5", "Language Model": "Vicuna-13B", "Frames": 8, "Unders.": 62.27, "Reason.": 71.34, "Overall": 64.18, "Date": "2024-07-07"},
+  {"Model": "VTimeLLM-Vicuna", "Language Model": "Vicuna-7B", "Frames": 100, "Unders.": 52.24, "Reason.": 63.07, "Overall": 54.52, "Date": "2024-07-07"},
+  {"Model": "VTimeLLM-ChatGLM", "Language Model": "ChatGLM3-6B", "Frames": 100, "Unders.": 50.91, "Reason.": 60.15, "Overall": 52.86, "Date": "2024-07-07"}
   ]
 
 for d in new_data:
