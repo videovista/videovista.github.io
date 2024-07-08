@@ -35,6 +35,9 @@ def custom_to_html(df):
     html_str = re.sub(r'<td style="vertical-align: middle;">VTimeLLM-Vicuna</td>', '<td style="text-align: left; padding: 2px 10px; vertical-align: middle;"><b class=""><a href="https://github.com/huangb23/VTimeLLM" class="ext-link" style="font-size: 16px; margin-left: 5px;">VTimeLLM-Vicuna', html_str)
     html_str = re.sub(r'<td style="vertical-align: middle;">VTimeLLM-ChatGLM</td>', '<td style="text-align: left; padding: 2px 10px; vertical-align: middle;"><b class=""><a href="https://github.com/huangb23/VTimeLLM" class="ext-link" style="font-size: 16px; margin-left: 5px;">VTimeLLM-ChatGLM', html_str)
     html_str = re.sub(r'<td style="vertical-align: middle;">MiniGPT4-Video</td>', '<td style="text-align: left; padding: 2px 10px; vertical-align: middle;"><b class=""><a href="https://github.com/Vision-CAIR/MiniGPT4-video" class="ext-link" style="font-size: 16px; margin-left: 5px;">MiniGPT4-Video', html_str)
+    
+    html_str = re.sub(r'<td style="vertical-align: middle;">Chat-UniVi-v1.5</td>', '<td style="text-align: left; padding: 2px 10px; vertical-align: middle;"><b class=""><a href="https://github.com/PKU-YuanGroup/Chat-UniVi" class="ext-link" style="font-size: 16px; margin-left: 5px;">Chat-UniVi-v1.5', html_str)
+    html_str = re.sub(r'<td style="vertical-align: middle;">LongVA</td>', '<td style="text-align: left; padding: 2px 10px; vertical-align: middle;"><b class=""><a href="https://github.com/EvolvingLMMs-Lab/LongVA" class="ext-link" style="font-size: 16px; margin-left: 5px;">LongVA', html_str)
     return html_str
 
 # 创建数据
@@ -65,9 +68,11 @@ new_data = [
   {"Model": "MiniGPT4-Video", "Language Model": "Mistral-7B", "Frames": 45, "Unders.": 51.73, "Reason.": 65.50, "Overall": 54.64, "Date": "2024-07-05"},
   {"Model": "VILA-1.5", "Language Model": "Vicuna-13B", "Frames": 8, "Unders.": 62.27, "Reason.": 71.34, "Overall": 64.18, "Date": "2024-07-07"},
   {"Model": "VTimeLLM-Vicuna", "Language Model": "Vicuna-7B", "Frames": 100, "Unders.": 52.24, "Reason.": 63.07, "Overall": 54.52, "Date": "2024-07-07"},
-  {"Model": "VTimeLLM-ChatGLM", "Language Model": "ChatGLM3-6B", "Frames": 100, "Unders.": 50.91, "Reason.": 60.15, "Overall": 52.86, "Date": "2024-07-07"}
+  {"Model": "VTimeLLM-ChatGLM", "Language Model": "ChatGLM3-6B", "Frames": 100, "Unders.": 50.91, "Reason.": 60.15, "Overall": 52.86, "Date": "2024-07-07"},
+  {"Model": "Chat-UniVi-v1.5", "Language Model": "Vicuna-7B", "Frames": 64, "Unders.": 51.72, "Reason.": 63.55, "Overall": 54.22, "Date": "2024-07-08"},
+  {"Model": "LongVA", "Language Model": "Qwen2-7B", "Frames": 128, "Unders.": 64.67, "Reason.": 77.39, "Overall": 67.36, "Date": "2024-07-08"},
+  # {"Model": "VTimeLLM-ChatGLM", "Language Model": "ChatGLM3-6B", "Frames": 1, "Unders.": 50.91, "Reason.": 60.15, "Overall": 52.86, "Date": "2024-07-08"},
   ]
-
 for d in new_data:
   df = df.append(d, ignore_index=True)
 
