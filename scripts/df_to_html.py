@@ -38,6 +38,8 @@ def custom_to_html(df):
     
     html_str = re.sub(r'<td style="vertical-align: middle;">Chat-UniVi-v1.5</td>', '<td style="text-align: left; padding: 2px 10px; vertical-align: middle;"><b class=""><a href="https://github.com/PKU-YuanGroup/Chat-UniVi" class="ext-link" style="font-size: 16px; margin-left: 5px;">Chat-UniVi-v1.5', html_str)
     html_str = re.sub(r'<td style="vertical-align: middle;">LongVA</td>', '<td style="text-align: left; padding: 2px 10px; vertical-align: middle;"><b class=""><a href="https://github.com/EvolvingLMMs-Lab/LongVA" class="ext-link" style="font-size: 16px; margin-left: 5px;">LongVA', html_str)
+    
+    html_str = re.sub(r'<td style="vertical-align: middle;">InternLM-XComposer-2.5</td>', '<td style="text-align: left; padding: 2px 10px; vertical-align: middle;"><b class=""><a href="https://github.com/InternLM/InternLM-XComposer" class="ext-link" style="font-size: 16px; margin-left: 5px;">InternLM-XComposer-2.5', html_str)
     return html_str
 
 # 创建数据
@@ -45,9 +47,9 @@ data = {
     "Model": ["VideoChat_with_ChatGPT", "Video-LLaMA", "Video-ChatGPT", "IVA", "ShareGPT4Video", "VILA-1.5",
               "Video-LLaVA", "LLaMA-VID", "LLaVA-NeXT-Video-DPO", "VideoChat2-Vicuna", "VideoChat2-Mistral", 
               "PLLaVA", "PLLaVA", "Uni-MoE", "Gemini-1.5-Flash", "GPT-4o", "place"],
-    "Language Model": ["gpt-3.5-turbo", "Vicuna-7B", "Vicuna-7B", "Vicuna-7B", "Vicuna-7B", "Llama3-8B",
-                       "Vicuna-7B", "Vicuna-7B", "Vicuna-7B", "Vicuna-7B", "Mistral-7B", "Vicuna-7B", 
-                       "Vicuna-13B", "Vicuna-7B", "Gemini", "GPT-4", "place"],
+    "Language Model": ["gpt-3.5-turbo", "Vicuna-7B-v1.1", "Vicuna-7B-v1.1", "Vicuna-7B-v1.5", "Vicuna-7B-v1.5", "Llama3-8B",
+                       "Vicuna-7B-v1.5", "Vicuna-7B-v1.5", "Vicuna-7B-v1.5", "Vicuna-7B-v1.5", "Mistral-7B", "Vicuna-7B-v1.5", 
+                       "Vicuna-13B-v1.5", "Vicuna-7B-v1.5", "Gemini", "GPT-4", "place"],
     "Frames": [40, 16, 100, 200, 16, 8, 8, "1 fps", 16, 16, 16, 16, 16, 8, "1 fps", 100, 1],
     "Date": ["2024-07-05", "2024-07-05", "2024-07-05", "2024-07-05", "2024-07-05", "2024-07-05", "2024-07-05", "2024-07-05", "2024-07-05", "2024-07-05" ,"2024-07-05" ,"2024-07-05" ,"2024-07-05" ,"2024-07-05" ,"2024-07-05" ,"2024-07-05", ""],
     "Overall": [17.99, 25.35, 36.65, 39.70, 53.58, 55.15, 56.59, 56.87, 56.66, 53.64, 57.24, 60.36, 64.67, 61.13, 76.39, 78.26, 100],
@@ -66,12 +68,12 @@ new_data = [
   {"Model": "Video-CCAM", "Language Model": "Yi-1.5-9B", "Frames": 96, "Unders.": 62.40, "Reason.": 71.84, "Overall": 64.39, "Date": "2024-07-05"},
   {"Model": "VideoLLaMA2", "Language Model": "Mistral-7B", "Frames": 16, "Unders.": 58.73, "Reason.": 66.97, "Overall": 60.47, "Date": "2024-07-05"},
   {"Model": "MiniGPT4-Video", "Language Model": "Mistral-7B", "Frames": 45, "Unders.": 51.73, "Reason.": 65.50, "Overall": 54.64, "Date": "2024-07-05"},
-  {"Model": "VILA-1.5", "Language Model": "Vicuna-13B", "Frames": 8, "Unders.": 62.27, "Reason.": 71.34, "Overall": 64.18, "Date": "2024-07-07"},
-  {"Model": "VTimeLLM-Vicuna", "Language Model": "Vicuna-7B", "Frames": 100, "Unders.": 52.24, "Reason.": 63.07, "Overall": 54.52, "Date": "2024-07-07"},
+  {"Model": "VILA-1.5", "Language Model": "Vicuna-13B-v1.5", "Frames": 8, "Unders.": 62.27, "Reason.": 71.34, "Overall": 64.18, "Date": "2024-07-07"},
+  {"Model": "VTimeLLM-Vicuna", "Language Model": "Vicuna-7B-v1.5", "Frames": 100, "Unders.": 52.24, "Reason.": 63.07, "Overall": 54.52, "Date": "2024-07-07"},
   {"Model": "VTimeLLM-ChatGLM", "Language Model": "ChatGLM3-6B", "Frames": 100, "Unders.": 50.91, "Reason.": 60.15, "Overall": 52.86, "Date": "2024-07-07"},
-  {"Model": "Chat-UniVi-v1.5", "Language Model": "Vicuna-7B", "Frames": 64, "Unders.": 51.72, "Reason.": 63.55, "Overall": 54.22, "Date": "2024-07-08"},
+  {"Model": "Chat-UniVi-v1.5", "Language Model": "Vicuna-7B-v1.5", "Frames": 64, "Unders.": 51.72, "Reason.": 63.55, "Overall": 54.22, "Date": "2024-07-08"},
   {"Model": "LongVA", "Language Model": "Qwen2-7B", "Frames": 128, "Unders.": 64.67, "Reason.": 77.39, "Overall": 67.36, "Date": "2024-07-08"},
-  # {"Model": "VTimeLLM-ChatGLM", "Language Model": "ChatGLM3-6B", "Frames": 1, "Unders.": 50.91, "Reason.": 60.15, "Overall": 52.86, "Date": "2024-07-08"},
+  {"Model": "InternLM-XComposer-2.5", "Language Model": "InternLM2-7B", "Frames": 64, "Unders.": 66.75, "Reason.": 76.96, "Overall": 68.91, "Date": "2024-07-09"},
   ]
 for d in new_data:
   df = df.append(d, ignore_index=True)
