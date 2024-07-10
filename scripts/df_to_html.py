@@ -41,6 +41,8 @@ def custom_to_html(df):
     
     html_str = re.sub(r'<td style="vertical-align: middle;">InternLM-XComposer-2.5</td>', '<td style="text-align: left; padding: 2px 10px; vertical-align: middle;"><b class=""><a href="https://github.com/InternLM/InternLM-XComposer" class="ext-link" style="font-size: 16px; margin-left: 5px;">InternLM-XComposer-2.5', html_str)
     html_str = re.sub(r'<td style="vertical-align: middle;">ST-LLM</td>', '<td style="text-align: left; padding: 2px 10px; vertical-align: middle;"><b class=""><a href="https://github.com/TencentARC/ST-LLM" class="ext-link" style="font-size: 16px; margin-left: 5px;">ST-LLM', html_str)
+    
+    html_str = re.sub(r'<td style="vertical-align: middle;">LongVA-DPO</td>', '<td style="text-align: left; padding: 2px 10px; vertical-align: middle;"><b class=""><a href="https://github.com/EvolvingLMMs-Lab/LongVA" class="ext-link" style="font-size: 16px; margin-left: 5px;">LongVA-DPO', html_str)
     return html_str
 
 # 创建数据
@@ -76,6 +78,7 @@ new_data = [
   {"Model": "LongVA", "Language Model": "Qwen2-7B", "Frames": 128, "Unders.": 64.67, "Reason.": 77.39, "Overall": 67.36, "Date": "2024-07-08"},
   {"Model": "InternLM-XComposer-2.5", "Language Model": "InternLM2-7B", "Frames": 64, "Unders.": 66.75, "Reason.": 76.96, "Overall": 68.91, "Date": "2024-07-09"},
   {"Model": "ST-LLM", "Language Model": "Vicuna-7b-v1.1", "Frames": 64, "Unders.": 47.28, "Reason.": 56.98, "Overall": 49.33, "Date": "2024-07-09"},
+  {"Model": "LongVA-DPO", "Language Model": "Qwen2-7B", "Frames": 128, "Unders.": 64.81, "Reason.": 77.50, "Overall": 67.49, "Date": "2024-07-10"},
   ]
 for d in new_data:
   df = df.append(d, ignore_index=True)
