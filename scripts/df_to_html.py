@@ -43,6 +43,7 @@ def custom_to_html(df):
     html_str = re.sub(r'<td style="vertical-align: middle;">ST-LLM</td>', '<td style="text-align: left; padding: 2px 10px; vertical-align: middle;"><b class=""><a href="https://github.com/TencentARC/ST-LLM" class="ext-link" style="font-size: 16px; margin-left: 5px;">ST-LLM', html_str)
     
     html_str = re.sub(r'<td style="vertical-align: middle;">LongVA-DPO</td>', '<td style="text-align: left; padding: 2px 10px; vertical-align: middle;"><b class=""><a href="https://github.com/EvolvingLMMs-Lab/LongVA" class="ext-link" style="font-size: 16px; margin-left: 5px;">LongVA-DPO', html_str)
+    html_str = re.sub(r'<td style="vertical-align: middle;">CogVLM2-Video-Chat</td>', '<td style="text-align: left; padding: 2px 10px; vertical-align: middle;"><b class=""><a href="https://cogvlm2-video.github.io/" class="ext-link" style="font-size: 16px; margin-left: 5px;">CogVLM2-Video-Chat', html_str)
     return html_str
 
 # 创建数据
