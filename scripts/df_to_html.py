@@ -79,6 +79,7 @@ new_data = [
   {"Model": "InternLM-XComposer-2.5", "Language Model": "InternLM2-7B", "Frames": 64, "Unders.": 66.75, "Reason.": 76.96, "Overall": 68.91, "Date": "2024-07-09"},
   {"Model": "ST-LLM", "Language Model": "Vicuna-7b-v1.1", "Frames": 64, "Unders.": 47.28, "Reason.": 56.98, "Overall": 49.33, "Date": "2024-07-09"},
   {"Model": "LongVA-DPO", "Language Model": "Qwen2-7B", "Frames": 128, "Unders.": 64.81, "Reason.": 77.50, "Overall": 67.49, "Date": "2024-07-10"},
+  {"Model": "CogVLM2-Video-Chat", "Language Model": "LLaMA3-8B", "Frames": 24, "Unders.": 56.85, "Reason.": 58.48, "Overall": 57.19, "Date": "2024-07-16"},
   ]
 for d in new_data:
   df = df.append(d, ignore_index=True)
