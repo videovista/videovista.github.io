@@ -44,6 +44,7 @@ def custom_to_html(df):
     
     html_str = re.sub(r'<td style="vertical-align: middle;">LongVA-DPO</td>', '<td style="text-align: left; padding: 2px 10px; vertical-align: middle;"><b class=""><a href="https://github.com/EvolvingLMMs-Lab/LongVA" class="ext-link" style="font-size: 16px; margin-left: 5px;">LongVA-DPO', html_str)
     html_str = re.sub(r'<td style="vertical-align: middle;">CogVLM2-Video-Chat</td>', '<td style="text-align: left; padding: 2px 10px; vertical-align: middle;"><b class=""><a href="https://cogvlm2-video.github.io/" class="ext-link" style="font-size: 16px; margin-left: 5px;">CogVLM2-Video-Chat', html_str)
+    html_str = re.sub(r'<td style="vertical-align: middle;">VideoChat2-Mistral-HD</td>', '<td style="text-align: left; padding: 2px 10px; vertical-align: middle;"><b class=""><a href="https://github.com/OpenGVLab/Ask-Anything/tree/main/video_chat2" class="ext-link" style="font-size: 16px; margin-left: 5px;">VideoChat2-Mistral-HD', html_str)
     return html_str
 
 # 创建数据
@@ -81,6 +82,9 @@ new_data = [
   {"Model": "ST-LLM", "Language Model": "Vicuna-7b-v1.1", "Frames": 64, "Unders.": 47.28, "Reason.": 56.98, "Overall": 49.33, "Date": "2024-07-09"},
   {"Model": "LongVA-DPO", "Language Model": "Qwen2-7B", "Frames": 128, "Unders.": 64.81, "Reason.": 77.50, "Overall": 67.49, "Date": "2024-07-10"},
   {"Model": "CogVLM2-Video-Chat", "Language Model": "LLaMA3-8B", "Frames": 24, "Unders.": 56.85, "Reason.": 58.48, "Overall": 57.19, "Date": "2024-07-16"},
+  {"Model": "Video-CCAM", "Language Model": "Phi-3-medimum-4k", "Frames": 96, "Unders.": 66.15, "Reason.": 76.90, "Overall": 68.43, "Date": "2024-07-17"},
+  {"Model": "VideoChat2-Mistral-HD", "Language Model": "Mistral-7B", "Frames": 16, "Unders.": 59.27, "Reason.": 70.24, "Overall": 61.58, "Date": "2024-07-17"},
+  {"Model": "Video-CCAM", "Language Model": "Phi-3-mini-4k", "Frames": 96, "Unders.": 66.18, "Reason.": 75.22, "Overall": 68.09, "Date": "2024-07-18"},
   ]
 for d in new_data:
   df = df.append(d, ignore_index=True)
