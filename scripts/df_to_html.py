@@ -45,6 +45,7 @@ def custom_to_html(df):
     html_str = re.sub(r'<td style="vertical-align: middle;">LongVA-DPO</td>', '<td style="text-align: left; padding: 2px 10px; vertical-align: middle;"><b class=""><a href="https://github.com/EvolvingLMMs-Lab/LongVA" class="ext-link" style="font-size: 16px; margin-left: 5px;">LongVA-DPO', html_str)
     html_str = re.sub(r'<td style="vertical-align: middle;">CogVLM2-Video-Chat</td>', '<td style="text-align: left; padding: 2px 10px; vertical-align: middle;"><b class=""><a href="https://cogvlm2-video.github.io/" class="ext-link" style="font-size: 16px; margin-left: 5px;">CogVLM2-Video-Chat', html_str)
     html_str = re.sub(r'<td style="vertical-align: middle;">VideoChat2-Mistral-HD</td>', '<td style="text-align: left; padding: 2px 10px; vertical-align: middle;"><b class=""><a href="https://github.com/OpenGVLab/Ask-Anything/tree/main/video_chat2" class="ext-link" style="font-size: 16px; margin-left: 5px;">VideoChat2-Mistral-HD', html_str)
+    html_str = re.sub(r'<td style="vertical-align: middle;">GPT-4o-mini</td>', '<td style="text-align: left; padding: 2px 10px; vertical-align: middle;"><b class=""><a href="https://openai.com/index/hello-gpt-4o/" class="ext-link" style="font-size: 16px; margin-left: 5px;">GPT-4o', html_str)
     return html_str
 
 # 创建数据
@@ -54,7 +55,7 @@ data = {
               "PLLaVA", "PLLaVA", "Uni-MoE", "Gemini-1.5-Flash", "GPT-4o", "place"],
     "Language Model": ["gpt-3.5-turbo", "Vicuna-7B-v1.1", "Vicuna-7B-v1.1", "Vicuna-7B-v1.5", "Vicuna-7B-v1.5", "Llama3-8B",
                        "Vicuna-7B-v1.5", "Vicuna-7B-v1.5", "Vicuna-7B-v1.5", "Vicuna-7B-v1.5", "Mistral-7B", "Vicuna-7B-v1.5", 
-                       "Vicuna-13B-v1.5", "Vicuna-7B-v1.5", "Gemini", "GPT-4", "place"],
+                       "Vicuna-13B-v1.5", "Vicuna-7B-v1.5", "-", "-", "place"],
     "Frames": [40, 16, 100, 200, 16, 8, 8, "1 fps", 16, 16, 16, 16, 16, 8, "1 fps", 100, 1],
     "Date": ["2024-07-05", "2024-07-05", "2024-07-05", "2024-07-05", "2024-07-05", "2024-07-05", "2024-07-05", "2024-07-05", "2024-07-05", "2024-07-05" ,"2024-07-05" ,"2024-07-05" ,"2024-07-05" ,"2024-07-05" ,"2024-07-05" ,"2024-07-05", ""],
     "Overall": [17.99, 25.35, 36.65, 39.70, 53.58, 55.15, 56.59, 56.87, 56.66, 53.64, 57.24, 60.36, 64.67, 61.13, 76.39, 78.26, 100],
@@ -73,6 +74,7 @@ new_data = [
   {"Model": "Video-CCAM", "Language Model": "Yi-1.5-9B", "Frames": 96, "Unders.": 62.40, "Reason.": 71.84, "Overall": 64.39, "Date": "2024-07-05"},
   {"Model": "VideoLLaMA2", "Language Model": "Mistral-7B", "Frames": 16, "Unders.": 58.73, "Reason.": 66.97, "Overall": 60.47, "Date": "2024-07-05"},
   {"Model": "MiniGPT4-Video", "Language Model": "Mistral-7B", "Frames": 45, "Unders.": 51.73, "Reason.": 65.50, "Overall": 54.64, "Date": "2024-07-05"},
+  {"Model": "MiniGPT4-Video", "Language Model": "Vicuna-7B-v1.5", "Frames": 45, "Unders.": 43.43, "Reason.": 50.48, "Overall": 44.92, "Date": "2024-07-05"},
   {"Model": "VILA-1.5", "Language Model": "Vicuna-13B-v1.5", "Frames": 8, "Unders.": 62.27, "Reason.": 71.34, "Overall": 64.18, "Date": "2024-07-07"},
   {"Model": "VTimeLLM-Vicuna", "Language Model": "Vicuna-7B-v1.5", "Frames": 100, "Unders.": 52.24, "Reason.": 63.07, "Overall": 54.52, "Date": "2024-07-07"},
   {"Model": "VTimeLLM-ChatGLM", "Language Model": "ChatGLM3-6B", "Frames": 100, "Unders.": 50.91, "Reason.": 60.15, "Overall": 52.86, "Date": "2024-07-07"},
@@ -85,6 +87,7 @@ new_data = [
   {"Model": "Video-CCAM", "Language Model": "Phi-3-medimum-4k", "Frames": 96, "Unders.": 66.15, "Reason.": 76.90, "Overall": 68.43, "Date": "2024-07-17"},
   {"Model": "VideoChat2-Mistral-HD", "Language Model": "Mistral-7B", "Frames": 16, "Unders.": 59.27, "Reason.": 70.24, "Overall": 61.58, "Date": "2024-07-17"},
   {"Model": "Video-CCAM", "Language Model": "Phi-3-mini-4k", "Frames": 96, "Unders.": 66.18, "Reason.": 75.22, "Overall": 68.09, "Date": "2024-07-18"},
+  {"Model": "GPT-4o-mini", "Language Model": "-", "Frames": 100, "Unders.": 72.87, "Reason.": 85.52, "Overall": 75.76, "Date": "2024-07-19"},
   ]
 for d in new_data:
   df = df.append(d, ignore_index=True)
