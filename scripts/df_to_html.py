@@ -46,6 +46,8 @@ def custom_to_html(df):
     html_str = re.sub(r'<td style="vertical-align: middle;">CogVLM2-Video-Chat</td>', '<td style="text-align: left; padding: 2px 10px; vertical-align: middle;"><b class=""><a href="https://cogvlm2-video.github.io/" class="ext-link" style="font-size: 16px; margin-left: 5px;">CogVLM2-Video-Chat', html_str)
     html_str = re.sub(r'<td style="vertical-align: middle;">VideoChat2-Mistral-HD</td>', '<td style="text-align: left; padding: 2px 10px; vertical-align: middle;"><b class=""><a href="https://github.com/OpenGVLab/Ask-Anything/tree/main/video_chat2" class="ext-link" style="font-size: 16px; margin-left: 5px;">VideoChat2-Mistral-HD', html_str)
     html_str = re.sub(r'<td style="vertical-align: middle;">GPT-4o-mini</td>', '<td style="text-align: left; padding: 2px 10px; vertical-align: middle;"><b class=""><a href="https://openai.com/index/hello-gpt-4o/" class="ext-link" style="font-size: 16px; margin-left: 5px;">GPT-4o', html_str)
+    
+    html_str = re.sub(r'<td style="vertical-align: middle;">Kangaroo</td>', '<td style="text-align: left; padding: 2px 10px; vertical-align: middle;"><b class=""><a href=" https://github.com/KangarooGroup/Kangaroo" class="ext-link" style="font-size: 16px; margin-left: 5px;">Kangaroo', html_str)
     return html_str
 
 # 创建数据
@@ -88,6 +90,7 @@ new_data = [
   {"Model": "VideoChat2-Mistral-HD", "Language Model": "Mistral-7B", "Frames": 16, "Unders.": 59.27, "Reason.": 70.24, "Overall": 61.58, "Date": "2024-07-17"},
   {"Model": "Video-CCAM", "Language Model": "Phi-3-mini-4k", "Frames": 96, "Unders.": 66.18, "Reason.": 75.22, "Overall": 68.09, "Date": "2024-07-18"},
   {"Model": "GPT-4o-mini", "Language Model": "-", "Frames": 100, "Unders.": 72.87, "Reason.": 85.52, "Overall": 75.76, "Date": "2024-07-19"},
+  {"Model": "Kangaroo", "Language Model": "Llama3-8B", "Frames": 64, "Unders.": 66.36, "Reason.": 81.23, "Overall": 69.50, "Date": "2024-07-24"},
   ]
 for d in new_data:
   df = df.append(d, ignore_index=True)
