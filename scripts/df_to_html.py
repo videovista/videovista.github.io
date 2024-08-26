@@ -30,7 +30,7 @@ def custom_to_html(df):
     html_str = re.sub(r'<td style="vertical-align: middle;">VideoChat_with_ChatGPT</td>', '<td style="text-align: left; padding: 2px 10px; vertical-align: middle;"><b class=""><a href="https://github.com/OpenGVLab/Ask-Anything/tree/main/video_chat_with_ChatGPT" class="ext-link" style="font-size: 16px; margin-left: 5px;">VideoChat_with_ChatGPT', html_str)
     
     
-    html_str = re.sub(r'<td style="vertical-align: middle;">Video-CCAM</td>', '<td style="text-align: left; padding: 2px 10px; vertical-align: middle;"><b class=""><a href="https://github.com/QQ-MM/Video-CCAM" class="ext-link" style="font-size: 16px; margin-left: 5px;">Video-CCAM', html_str)
+    html_str = re.sub(r'<td style="vertical-align: middle;">Video-CCAM-v1.1</td>', '<td style="text-align: left; padding: 2px 10px; vertical-align: middle;"><b class=""><a href="https://github.com/QQ-MM/Video-CCAM" class="ext-link" style="font-size: 16px; margin-left: 5px;">Video-CCAM', html_str)
     html_str = re.sub(r'<td style="vertical-align: middle;">VideoLLaMA2</td>', '<td style="text-align: left; padding: 2px 10px; vertical-align: middle;"><b class=""><a href="https://github.com/DAMO-NLP-SG/VideoLLaMA2" class="ext-link" style="font-size: 16px; margin-left: 5px;">VideoLLaMA2', html_str)
     html_str = re.sub(r'<td style="vertical-align: middle;">VTimeLLM-Vicuna</td>', '<td style="text-align: left; padding: 2px 10px; vertical-align: middle;"><b class=""><a href="https://github.com/huangb23/VTimeLLM" class="ext-link" style="font-size: 16px; margin-left: 5px;">VTimeLLM-Vicuna', html_str)
     html_str = re.sub(r'<td style="vertical-align: middle;">VTimeLLM-ChatGLM</td>', '<td style="text-align: left; padding: 2px 10px; vertical-align: middle;"><b class=""><a href="https://github.com/huangb23/VTimeLLM" class="ext-link" style="font-size: 16px; margin-left: 5px;">VTimeLLM-ChatGLM', html_str)
@@ -74,7 +74,7 @@ df = pd.DataFrame(data)
 # new_data = {"Model": "NewModel", "Language Model": "NewLanguageModel", "Frames": 50, "Unders.": 60.00, "Reason.": 70.00, "Overall": 65.00}
 # df = df.append(new_data, ignore_index=True)
 new_data = [
-  {"Model": "Video-CCAM", "Language Model": "Yi-1.5-9B", "Frames": 96, "Unders.": 62.40, "Reason.": 71.84, "Overall": 64.39, "Date": "2024-07-05"},
+  # {"Model": "Video-CCAM", "Language Model": "Yi-1.5-9B", "Frames": 96, "Unders.": 62.40, "Reason.": 71.84, "Overall": 64.39, "Date": "2024-07-05"},
   {"Model": "VideoLLaMA2", "Language Model": "Mistral-7B", "Frames": 16, "Unders.": 58.73, "Reason.": 66.97, "Overall": 60.47, "Date": "2024-07-05"},
   {"Model": "MiniGPT4-Video", "Language Model": "Mistral-7B", "Frames": 45, "Unders.": 51.73, "Reason.": 65.50, "Overall": 54.64, "Date": "2024-07-05"},
   {"Model": "MiniGPT4-Video", "Language Model": "Vicuna-7B-v1.5", "Frames": 45, "Unders.": 43.43, "Reason.": 50.48, "Overall": 44.92, "Date": "2024-07-05"},
@@ -87,9 +87,10 @@ new_data = [
   {"Model": "ST-LLM", "Language Model": "Vicuna-7b-v1.1", "Frames": 64, "Unders.": 47.28, "Reason.": 56.98, "Overall": 49.33, "Date": "2024-07-09"},
   {"Model": "LongVA-DPO", "Language Model": "Qwen2-7B", "Frames": 128, "Unders.": 64.81, "Reason.": 77.50, "Overall": 67.49, "Date": "2024-07-10"},
   {"Model": "CogVLM2-Video-Chat", "Language Model": "LLaMA3-8B", "Frames": 24, "Unders.": 56.85, "Reason.": 58.48, "Overall": 57.19, "Date": "2024-07-16"},
-  {"Model": "Video-CCAM", "Language Model": "Phi-3-medimum-4k", "Frames": 96, "Unders.": 66.15, "Reason.": 76.90, "Overall": 68.43, "Date": "2024-07-17"},
+  # {"Model": "Video-CCAM", "Language Model": "Phi-3-medimum-4k", "Frames": 96, "Unders.": 66.15, "Reason.": 76.90, "Overall": 68.43, "Date": "2024-07-17"},
   {"Model": "VideoChat2-Mistral-HD", "Language Model": "Mistral-7B", "Frames": 16, "Unders.": 59.27, "Reason.": 70.24, "Overall": 61.58, "Date": "2024-07-17"},
-  {"Model": "Video-CCAM", "Language Model": "Phi-3-mini-4k", "Frames": 96, "Unders.": 66.18, "Reason.": 75.22, "Overall": 68.09, "Date": "2024-07-18"},
+  # {"Model": "Video-CCAM", "Language Model": "Phi-3-mini-4k", "Frames": 96, "Unders.": 66.18, "Reason.": 75.22, "Overall": 68.09, "Date": "2024-07-18"},
+  {"Model": "Video-CCAM-v1.1", "Language Model": "Phi-3-mini-4k", "Frames": 96, "Unders.": 67.49, "Reason.": 82.31, "Overall": 70.82, "Date": "2024-08-26"},
   {"Model": "GPT-4o-mini", "Language Model": "-", "Frames": 100, "Unders.": 72.87, "Reason.": 85.52, "Overall": 75.76, "Date": "2024-07-19"},
   {"Model": "Kangaroo", "Language Model": "Llama3-8B", "Frames": 64, "Unders.": 66.36, "Reason.": 81.23, "Overall": 69.50, "Date": "2024-07-24"},
   {"Model": "LLaVA-OneVision", "Language Model": "Qwen2-7B", "Frames": 32, "Unders.": 70.25, "Reason.": 83.20, "Overall": 72.99, "Date": "2024-08-15"},
