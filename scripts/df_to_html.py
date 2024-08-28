@@ -91,9 +91,11 @@ new_data = [
   {"Model": "VideoChat2-Mistral-HD", "Language Model": "Mistral-7B", "Frames": 16, "Unders.": 59.27, "Reason.": 70.24, "Overall": 61.58, "Date": "2024-07-17"},
   {"Model": "Video-CCAM-v1.0", "Language Model": "Phi-3-mini-4k", "Frames": 96, "Unders.": 66.18, "Reason.": 75.22, "Overall": 68.09, "Date": "2024-07-18"},
   {"Model": "Video-CCAM-v1.1", "Language Model": "Phi-3-mini-4k", "Frames": 96, "Unders.": 67.49, "Reason.": 82.31, "Overall": 70.82, "Date": "2024-08-26"},
+  {"Model": "Video-CCAM-v1.1", "Language Model": "Phi-3-medimum-4k", "Frames": 96, "Unders.": 73.12, "Reason.": 89.14, "Overall": 76.50, "Date": "2024-08-28"},
   {"Model": "GPT-4o-mini", "Language Model": "-", "Frames": 100, "Unders.": 72.87, "Reason.": 85.52, "Overall": 75.76, "Date": "2024-07-19"},
   {"Model": "Kangaroo", "Language Model": "Llama3-8B", "Frames": 64, "Unders.": 66.36, "Reason.": 81.23, "Overall": 69.50, "Date": "2024-07-24"},
   {"Model": "LLaVA-OneVision", "Language Model": "Qwen2-7B", "Frames": 32, "Unders.": 70.25, "Reason.": 83.20, "Overall": 72.99, "Date": "2024-08-15"},
+  {"Model": "Human", "Language Model": "-", "Frames": "-", "Unders.": 89.64, "Reason.": 92.31, "Overall": 90.23, "Date": "2024-08-27"},
   ]
 for d in new_data:
   df = df.append(d, ignore_index=True)
