@@ -51,6 +51,8 @@ def custom_to_html(df):
     html_str = re.sub(r'<td style="vertical-align: middle;">LLaVA-OneVision</td>', '<td style="text-align: left; padding: 2px 10px; vertical-align: middle;"><b class=""><a href=" https://github.com/LLaVA-VL/LLaVA-NeXT" class="ext-link" style="font-size: 16px; margin-left: 5px;">LLaVA-OneVision', html_str)
     
     html_str = re.sub(r'<td style="vertical-align: middle;">Human</td>', '<td style="text-align: left; padding: 2px 10px; vertical-align: middle;"><b class=""><a href="https://videovista.github.io/" class="ext-link" style="font-size: 16px; margin-left: 5px;">Human Performance', html_str)
+    
+    html_str = re.sub(r'<td style="vertical-align: middle;">Qwen2-VL</td>', '<td style="text-align: left; padding: 2px 10px; vertical-align: middle;"><b class=""><a href="https://github.com/QwenLM/Qwen2-VL" class="ext-link" style="font-size: 16px; margin-left: 5px;">Qwen2-VL', html_str)
     return html_str
 
 # 创建数据
@@ -98,6 +100,7 @@ new_data = [
   {"Model": "Kangaroo", "Language Model": "Llama3-8B", "Frames": 64, "Unders.": 66.36, "Reason.": 81.23, "Overall": 69.50, "Date": "2024-07-24"},
   {"Model": "LLaVA-OneVision", "Language Model": "Qwen2-7B", "Frames": 32, "Unders.": 70.25, "Reason.": 83.20, "Overall": 72.99, "Date": "2024-08-15"},
   {"Model": "Human", "Language Model": "-", "Frames": "-", "Unders.": 89.64, "Reason.": 92.30, "Overall": 90.24, "Date": "2024-08-27"},
+  {"Model": "Qwen2-VL", "Language Model": "Qwen2", "Frames": "1fps", "Unders.": 72.58, "Reason.": 85.89, "Overall": 75.56, "Date": "2024-09-02"},
   ]
 for d in new_data:
   df = df.append(d, ignore_index=True)
