@@ -370,7 +370,7 @@
                 <td style="vertical-align: middle;">1</td>
                 <td style="text-align: left; padding: 2px 10px; vertical-align: middle;"><b class=""><a href="https://videovista.github.io/" class="ext-link" style="font-size: 16px; margin-left: 5px;">Human Performance
                 <td style="vertical-align: middle;">-</td>
-                <td style="vertical-align: middle;">-</td>
+                <td style="vertical-align: middle;">1fps</td>
                 <td style="vertical-align: middle;">2024-08-27</td>
                 <td style="vertical-align: middle;"><b>90.24</b></td>
                 <td style="vertical-align: middle;">89.64</td>
@@ -379,8 +379,8 @@
               <tr>
                 <td style="vertical-align: middle;">2</td>
                 <td style="text-align: left; padding: 2px 10px; vertical-align: middle;"><b class=""><a href="https://github.com/TimeMarker-LLM/TimeMarker" class="ext-link" style="font-size: 16px; margin-left: 5px;">TimeMarker
-                <td style="vertical-align: middle;">-</td>
-                <td style="vertical-align: middle;">1fps</td>
+                <td style="vertical-align: middle;">Llama3-8B</td>
+                <td style="vertical-align: middle;">1fps(max 128)</td>
                 <td style="vertical-align: middle;">2024-10-30</td>
                 <td style="vertical-align: middle;"><b>78.44</b></td>
                 <td style="vertical-align: middle;">75.93</td>
@@ -430,7 +430,7 @@
                 <td style="vertical-align: middle;">7</td>
                 <td style="text-align: left; padding: 2px 10px; vertical-align: middle;"><b class=""><a href="https://github.com/QwenLM/Qwen2-VL" class="ext-link" style="font-size: 16px; margin-left: 5px;">Qwen2-VL
                 <td style="vertical-align: middle;">Qwen2-7B</td>
-                <td style="vertical-align: middle;">1fps</td>
+                <td style="vertical-align: middle;">1fps(max 128)</td>
                 <td style="vertical-align: middle;">2024-09-02</td>
                 <td style="vertical-align: middle;"><b>75.56</b></td>
                 <td style="vertical-align: middle;">72.58</td>
@@ -761,6 +761,7 @@
           </div>
           
           <b>Human Performance*:</b> We randomly sample max 150 questions for every categroy and signed them to several group members. Finally, we obtained the human performance in above table.
+          <b>Relation Reasoning:</b> Due to the fact that most current models do not support video+video or video+image input for relation reasoning tasks, we only evaluated the relation reasoning task during the assessment of the GPT-4o series models, Gemini series models, and Qwen2-VL series models.
           <!-- <b>Human Performance*:</b> Average human performance from AMT annotators who have high school diplomas or above.
           <br>
           <b>Method types:</b> <b>MoE 🤖:</b> Mixture of Experts, <b>LMM 🖼️:</b> Large Multimodal Model, <b>Tool 🛠️:</b> Tool-augmented Large Language Model.
